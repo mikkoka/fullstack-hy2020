@@ -1,0 +1,37 @@
+Title: Uusi muistiinpano (AJAX)
+
+skinparam Title {
+    FontName American Typewriter
+    FontSize 30
+}
+skinparam sequence {
+    ArrowThickness 3
+    roundcorner 30
+    ParticipantBorderColor Black
+    ParticipantBackgroundColor LightGrey
+    ArrowColor Black
+    
+}
+
+skinparam note {
+    FontName American Typewriter
+    BackgroundColor White
+    BorderColor Black
+}
+
+skinparam shadowing false
+skinparam handwritten true
+
+note over selain: Käyttäjä painaa nappia
+selain->palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+palvelin-->selain: Status: 302 Redirect: /notes
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+palvelin-->selain: HTML-koodi
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+palvelin-->selain: main.css
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+palvelin-->selain: main.js
+note over selain: selain alkaa suorittaa js-koodia\njoka pyytää JSON-datan palvelimelta
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: JSON -tiedosto, sisältää myös lisätyn muistiinpanon
+note over selain: selain suorittaa tapahtumankäsittelijän\njoka renderöi muistiinpanot näytölle

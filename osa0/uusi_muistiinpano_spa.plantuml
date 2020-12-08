@@ -1,0 +1,28 @@
+Title: Uusi muistiinpano (SPA)
+
+skinparam Title {
+    FontName American Typewriter
+    FontSize 30
+}
+skinparam sequence {
+    ArrowThickness 3
+    roundcorner 30
+    ParticipantBorderColor Black
+    ParticipantBackgroundColor LightGrey
+    ArrowColor Black
+    
+}
+
+skinparam note {
+    FontName American Typewriter
+    BackgroundColor White
+    BorderColor Black
+}
+
+skinparam shadowing false
+skinparam handwritten true
+
+note over selain: Käyttäjä painaa nappia
+note over selain: Selain lisää muistiinpanon listaan\nja päivittää listan
+selain->palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+palvelin-->selain: [{"message":"note created"}]
