@@ -1,0 +1,41 @@
+Title: Single Page App
+
+skinparam Title {
+    FontName American Typewriter
+    FontSize 30
+}
+skinparam sequence {
+    ArrowThickness 3
+    roundcorner 30
+    ParticipantBorderColor Black
+    ParticipantBackgroundColor LightGrey
+    ArrowColor Black
+    
+}
+
+skinparam note {
+    FontName American Typewriter
+    BackgroundColor White
+    BorderColor Black
+}
+
+skinparam shadowing false
+skinparam handwritten true
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+palvelin-->selain: HTML-koodi
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+palvelin-->selain: main.css
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+palvelin-->selain: spa.js
+
+note over selain: selain alkaa suorittaa js-koodia\njoka pyytää JSON-datan palvelimelta
+
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: JSON -tiedosto, sisältää muistiinpanot
+
+note over selain: selain suorittaa tapahtumankäsittelijän\njoka renderöi muistiinpanot näytölle
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/favicon.ico
+palvelin-->selain: favicon.ico
