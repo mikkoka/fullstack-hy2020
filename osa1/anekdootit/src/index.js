@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
+import { createLogicalAnd } from 'typescript'
 
 const Button = ({text, clickHandler}) => {
   return(
@@ -26,7 +27,7 @@ const App = (props) => {
     setPoints(tmp)
     setCurrPoints(newVal)
   }
-
+  
 
   return (
     <div>
